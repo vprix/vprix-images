@@ -5,7 +5,7 @@ TAG   ?= develop
 
 
 build:
-	docker build -f ./dockerfile-vprix-vs-code -t $(REPO):$(TAG) .
+	docker build -f ./dockerfile-vprix-vscode -t $(REPO):$(TAG) .
 
 run:
 	docker run -it --rm \
