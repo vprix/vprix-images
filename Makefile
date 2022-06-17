@@ -10,6 +10,7 @@ build:
 run:
 	docker run -it --rm \
 	-p 8080:8080 \
+	--shm-size=1g \
 	--name vscode \
 	$(REPO):$(TAG)
 
@@ -28,6 +29,7 @@ build_chromium:
 run_chromium:
 	docker run -it --rm \
 	-p 8080:8080 \
+	--shm-size=1g \
 	--name chromium \
 	$(REPO_CHROMIUM):$(TAG_CHROMIUM)
 
