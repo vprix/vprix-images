@@ -12,7 +12,7 @@ if [[ "${DISTRO}" == @(centos|oracle7) ]]; then
 else
   # ubuntu执行复杂逻辑
   apt-get update
-  apt-get install -y software-properties-common
+  apt-get install -y --no-install-recommends  software-properties-common
   # 移除默认安装的版本
   apt-get remove -y chromium-browser-l10n chromium-codecs-ffmpeg chromium-browser
 
@@ -59,6 +59,9 @@ else
   #删除安装包
   rm "${chromium_codecs_data}"
   rm "${chromium_data}"
+
+  apt-get clean -y
+  rm -rf /var/lib/apt/lists/*
 fi
 
 # 修改快捷方式内容

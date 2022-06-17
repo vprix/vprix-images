@@ -16,6 +16,6 @@ rm vs_code.deb
 
 # Conveniences for python development
 apt-get update
-apt-get install -y python3-setuptools \
-                   python3-venv \
-                   python3-virtualenv
+apt-get install -y --no-install-recommends python3-setuptools python3-venv python3-virtualenv
+apt-get clean -y
+rm -rf /var/lib/apt/lists/*
