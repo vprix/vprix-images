@@ -1,0 +1,18 @@
+REPO_vscode  ?= vprix/vscode
+TAG_vscode   ?= develop
+
+build_vscode:
+	docker build -f ./dockerfile-vprix-vscode -t $(REPO_vscode):$(TAG_vscode) .
+
+run_vscode:
+	docker run -it --rm \
+	-p 8080:8080 \
+	--shm-size=1g \
+	--name vscode \
+	$(REPO_vscode):$(TAG_vscode)
+
+push_vscode:
+	docker push $(REPO_vscode):$(TAG_vscode)
+
+exec_vscode:
+	docker exec -ti vscode bash

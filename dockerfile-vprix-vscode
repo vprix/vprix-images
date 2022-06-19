@@ -11,9 +11,9 @@ WORKDIR $HOME
 ######### Customize Container Here ###########
 
 
-COPY ./src/ubuntu/install/vs_code $INST_SCRIPTS/vs_code/
-COPY ./src/ubuntu/install/vs_code/vscode.svg /usr/share/icons/hicolor/apps/
-RUN bash $INST_SCRIPTS/vs_code/install_vs_code.sh  && rm -rf $INST_SCRIPTS/vs_code/
+COPY src/ubuntu/install/vscode $INST_SCRIPTS/vscode/
+COPY src/ubuntu/install/vscode/vscode.svg /usr/share/icons/hicolor/apps/
+RUN bash $INST_SCRIPTS/vscode/install_vs_code.sh  && rm -rf $INST_SCRIPTS/vscode/
 
 
 # Update the desktop environment to be optimized for a single application
@@ -21,7 +21,7 @@ RUN cp $HOME/.config/xfce4/xfconf/single-application-xfce-perchannel-xml/* $HOME
 RUN apt-get remove -y xfce4-panel
 
 # 设置默认启动脚本
-COPY ./src/ubuntu/install/vs_code/custom_startup.sh $STARTUPDIR/custom_startup.sh
+COPY src/ubuntu/install/vscode/custom_startup.sh $STARTUPDIR/custom_startup.sh
 RUN chmod +x $STARTUPDIR/custom_startup.sh
 
 
